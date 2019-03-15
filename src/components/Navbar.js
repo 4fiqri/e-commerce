@@ -57,7 +57,7 @@ class HeaderKu extends Component{
                         </Navbar>
                     </div>
                 );
-            } else {
+            }else{
                 return(
                     <div style={{marginBottom:"75px"}}>
                         <Navbar color="light" light expand="md" fixed="top">
@@ -85,6 +85,17 @@ class HeaderKu extends Component{
                                         Menu
                                         </DropdownToggle>
                                         <DropdownMenu right>
+                                        {
+                                            this.props.role === 'admin'
+                                            ?
+                                            <Link to='/manage'>
+                                            <DropdownItem>
+                                            Manage Product
+                                            </DropdownItem>
+                                            </Link>
+                                            :
+                                            null
+                                        }
                                         <DropdownItem>
                                             Histori Transaksi
                                         </DropdownItem>
@@ -107,9 +118,10 @@ class HeaderKu extends Component{
         }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => { // state ada di index.js nya reducer
     return {
-        bebas : state.user.username
+        bebas : state.user.username,
+        role : state.user.role
     }
 }
 

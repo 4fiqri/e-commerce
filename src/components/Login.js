@@ -14,6 +14,7 @@ class Login extends React.Component{
         console.log(newProps)
         Cookie.set('userData',newProps.username,{path :'/'})
     }
+    
     onBtnLoginClick = () => {
         var username = this.refs.username.value // fikri
         var password = this.refs.password.value // rahasia123
